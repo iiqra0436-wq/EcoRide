@@ -1,5 +1,4 @@
 # EcoRide 🚗
-
 EcoRide is a Qt-based ride-sharing application built in C++ that allows **drivers** to post rides and **riders** to accept or propose fares.  
 It demonstrates file handling, GUI development, and basic ride-booking logic.
 ##  Features
