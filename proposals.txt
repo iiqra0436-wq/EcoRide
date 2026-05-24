@@ -1,0 +1,4 @@
+sehar proposed 1100 for Driver: Ahmed | From: h-12 → I-8 | Fare: 1200
+sana proposed 1100 for Driver: ahmed | From: h-12 → i-8 | Fare: 1200
+rameen proposed 600 for Driver: Ali | From: GIGA mall → Saddar | Fare: 800
+sana proposed 800 for Driver: shahid | From: f-8 → h-11 | Fare: 1000

@@ -1,0 +1,8 @@
+Umer,Bahria University H-11,G-15,480
+Haris,i-8,Giga Mall,1100
+Hassan,Air University Islamabad,Rawalpindi,700
+Ahmed,Saddar,H-11,990
+sana,Wah Cantt,H-15,1050
+sana,Wah Cantt,H-15,1050
+Hashim,Comsats,Jhangi Syeda,760
+sana,ISB,LHR,too

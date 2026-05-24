@@ -1,0 +1,10 @@
+sana accepted: Driver: Umer | From: Bahria University H-11 → G-15 | Fare: 480
+sana accepted: Driver: Umer | From: Bahria University H-11 → G-15 | Fare: 480
+Ali accepted: Driver: Haris | From: i-8 → Giga Mall | Fare: 1100
+Zara accepted: Driver: Hassan | From: Air University Islamabad → Rawalpindi | Fare: 700
+Ahmed accepted proposal: sana proposed 450 for Driver: Hassan | From: Air University Islamabad → Rawalpindi | Fare: 700
+Iqra proposed 800 for Driver: Ahmed | From: Saddar → H-11 | Fare: 990
+
+Ahmed accepted: Driver: Ahmed | From: Saddar → H-11 | Fare: 990
+zainab accepted: Driver: sana | From: Wah Cantt → H-15 | Fare: 1050
+Hania accepted: Driver: Umer | From: Bahria University H-11 → G-15 | Fare: 480

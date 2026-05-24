@@ -1,0 +1,7 @@
+ahmed,h-12,i-8,1200,Accepted,rameen
+Ahmed,h-12,I-8,1200,Accepted
+Ali,GIGA mall,Saddar,800,Accepted
+Saad,I-8,saddar,1100,Pending
+shahid,I-8,F-8,8000,Cancelled
+shahid,f-8,h-11,1000,Accepted,RiderFromProposal
+shahid,f-9 ,f-10,300,Cancelled

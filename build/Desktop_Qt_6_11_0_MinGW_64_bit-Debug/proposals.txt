@@ -1,0 +1,2 @@
+sarah,900,Driver: ali | From: giga mall → h-11 | Fare: 1050
+sana,1000,Driver: Ahmed | From: i-8 → bahira university h-11 | Fare: 1100
