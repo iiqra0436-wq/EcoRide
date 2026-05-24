@@ -18,18 +18,24 @@ RiderDashboard::RiderDashboard(QString username, QWidget *parent)
     layout->setSpacing(6);
     layout->setContentsMargins(15, 10, 15, 10);
 
+    // Heading label
     QLabel *label = new QLabel("Rider Dashboard - Welcome " + username);
-    label->setStyleSheet("font-size: 16px; font-weight: bold; color: #2e7d32;");
+    label->setAlignment(Qt::AlignCenter);
+    label->setStyleSheet("font-size: 18px; font-weight: bold; color: #2e7d32; margin-bottom: 10px;");
+    layout->addWidget(label);  // <-- Added heading to layout
 
+    // Back arrow
     QToolButton *backArrow = new QToolButton;
     backArrow->setArrowType(Qt::LeftArrow);
     backArrow->setStyleSheet("color: #2e7d32;");
     layout->addWidget(backArrow, 0, Qt::AlignLeft);
 
+    // Ride list
     rideList = new QListWidget;
     rideList->setStyleSheet("background-color: white; border: 1px solid #2e7d32; color: black;");
     layout->addWidget(rideList);
 
+    // Buttons
     QPushButton *acceptBtn = new QPushButton("Accept Ride");
     acceptBtn->setStyleSheet("background-color: #2e7d32; color: white; padding: 6px; font-size: 14px;");
 
@@ -58,6 +64,7 @@ RiderDashboard::RiderDashboard(QString username, QWidget *parent)
 
     loadRides();
 
+    // --- Connections remain unchanged ---
     connect(acceptBtn, &QPushButton::clicked, this, [=]() {
         QListWidgetItem *item = rideList->currentItem();
         if (!item) {

@@ -1,6 +1,7 @@
 #include "driverdashboard.h"
 #include "mainwindow.h"
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QFile>
 #include <QTextStream>
@@ -16,13 +17,19 @@ DriverDashboard::DriverDashboard(QString username, QWidget *parent)
 {
     QVBoxLayout *layout = new QVBoxLayout;
 
-    QLabel *label = new QLabel("Driver Dashboard - Welcome " + username);
-    label->setStyleSheet("font-size: 16px; font-weight: bold; color: #2e7d32;");
-
+    QHBoxLayout *headerLayout = new QHBoxLayout;
     QToolButton *backArrow = new QToolButton;
     backArrow->setArrowType(Qt::LeftArrow);
     backArrow->setStyleSheet("color: #2e7d32;");
-    layout->addWidget(backArrow, 0, Qt::AlignLeft);
+
+    QLabel *label = new QLabel("Driver Dashboard - Welcome " + username);
+    label->setAlignment(Qt::AlignCenter);
+    label->setStyleSheet("font-size: 18px; font-weight: bold; color: #2e7d32;");
+
+    headerLayout->addWidget(backArrow, 0, Qt::AlignLeft);
+    headerLayout->addWidget(label, 1);
+
+    layout->addLayout(headerLayout);
 
     originInput = new QLineEdit;
     originInput->setPlaceholderText("Enter origin");
@@ -60,30 +67,23 @@ DriverDashboard::DriverDashboard(QString username, QWidget *parent)
     resize(500, 450);
     setStyleSheet("background-color: #e8f5e9; font-family: Arial;");
 
-    // Post Ride
     connect(postBtn, &QPushButton::clicked, this, [=]() {
         if (originInput->text().isEmpty() || destinationInput->text().isEmpty() || fareInput->text().isEmpty()) {
             QMessageBox::warning(this, "Error", "Please fill in all fields.");
             return;
         }
-
-        QFile file("rides.txt");   // relative path
+        QFile file("rides.txt");
         if (file.open(QIODevice::Append | QIODevice::Text)) {
             QTextStream out(&file);
-            out << username << ","
-                << originInput->text() << ","
-                << destinationInput->text() << ","
-                << fareInput->text() << ",Pending\n";
+            out << username << "," << originInput->text() << "," << destinationInput->text() << "," << fareInput->text() << ",Pending\n";
             file.close();
         }
-
         QMessageBox::information(this, "Ride Posted", "Your ride has been posted successfully!");
         originInput->clear();
         destinationInput->clear();
         fareInput->clear();
     });
 
-    // View Accepted Rides
     connect(viewAcceptedBtn, &QPushButton::clicked, this, [=]() {
         QFile file("rides.txt");
         QStringList accepted;
@@ -93,9 +93,7 @@ DriverDashboard::DriverDashboard(QString username, QWidget *parent)
                 QString line = in.readLine();
                 QStringList parts = line.split(",");
                 if (parts.size() >= 6 && parts[0] == username && parts[4] == "Accepted") {
-                    accepted << "From: " + parts[1] + " → " + parts[2] +
-                                    " | Fare: " + parts[3] +
-                                    " | Rider: " + parts[5];
+                    accepted << "From: " + parts[1] + " → " + parts[2] + " | Fare: " + parts[3] + " | Rider: " + parts[5];
                 }
             }
             file.close();
@@ -103,7 +101,6 @@ DriverDashboard::DriverDashboard(QString username, QWidget *parent)
         QMessageBox::information(this, "Accepted Rides", accepted.isEmpty() ? "No rides accepted yet." : accepted.join("\n"));
     });
 
-    // View Fare Proposals
     connect(viewProposalsBtn, &QPushButton::clicked, this, [=]() {
         QFile file("proposals.txt");
         QStringList proposals;
@@ -118,21 +115,16 @@ DriverDashboard::DriverDashboard(QString username, QWidget *parent)
             }
             file.close();
         }
-
         if (proposals.isEmpty()) {
             QMessageBox::information(this, "Fare Proposals", "No proposals yet for your rides.");
             return;
         }
-
         bool ok;
-        QString chosen = QInputDialog::getItem(this, "Fare Proposals",
-                                               "Select a proposal to accept:",
-                                               proposals, 0, false, &ok);
+        QString chosen = QInputDialog::getItem(this, "Fare Proposals", "Select a proposal to accept:", proposals, 0, false, &ok);
         if (ok && !chosen.isEmpty()) {
             QStringList chosenParts = chosen.split(",");
-            QString riderName = chosenParts[0];   // rider username
-            QString counterFare = chosenParts[1]; // proposed fare
-
+            QString riderName = chosenParts[0];
+            QString counterFare = chosenParts[1];
             QFile ridesFile("rides.txt");
             QStringList lines;
             if (ridesFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -159,19 +151,14 @@ DriverDashboard::DriverDashboard(QString username, QWidget *parent)
                     out << line << "\n";
                 ridesFile.close();
             }
-
-            QMessageBox::information(this, "Proposal Accepted",
-                                     "You accepted " + riderName + "'s proposal of " + counterFare +
-                                         ". Ride marked as Accepted.");
+            QMessageBox::information(this, "Proposal Accepted", "You accepted " + riderName + "'s proposal of " + counterFare + ". Ride marked as Accepted.");
         }
     });
 
-    // Cancel Ride
     connect(cancelBtn, &QPushButton::clicked, this, [=]() {
         QFile file("rides.txt");
         QStringList lines;
         bool cancelled = false;
-
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             QTextStream in(&file);
             while (!in.atEnd()) {
@@ -186,7 +173,6 @@ DriverDashboard::DriverDashboard(QString username, QWidget *parent)
             }
             file.close();
         }
-
         if (cancelled) {
             if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
                 QTextStream out(&file);
