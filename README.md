@@ -10,7 +10,7 @@ EcoRide is a Qt-based ride-sharing desktop application built in C++ that allows 
 
 | Login | Driver Dashboard | Rider Dashboard |
 |-------|-----------------|-----------------|
-| ![Login](assets/login.png) | ![Driver](assets/driver.png) | ![Rider](assets/rider.png) |
+|![image alt](https://github.com/iiqra0436-wq/EcoRide/blob/33b023aa33ce1dce7cfe66c5171ba70511acc38e/login.png )| ![image alt](https://github.com/iiqra0436-wq/EcoRide/blob/33b023aa33ce1dce7cfe66c5171ba70511acc38e/driver.png) |![image alt](https://github.com/iiqra0436-wq/EcoRide/blob/33b023aa33ce1dce7cfe66c5171ba70511acc38e/rider.png) |
 
 ---
 
