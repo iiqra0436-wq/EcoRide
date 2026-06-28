@@ -1,10 +1,9 @@
 # EcoRide 🚗
 
-EcoRide is a Qt-based ride-sharing desktop application built in C++ that allows **drivers** to post rides and **riders** to accept or propose fares. It demonstrates object-oriented programming, file handling, GUI development, and core ride-booking logic.
+EcoRide is a desktop ride-sharing application built with C++ and the Qt Framework. It enables drivers to post rides while riders can browse, accept, or negotiate fares through an intuitive graphical interface. The project showcases Object-Oriented Programming (OOP), GUI development, file handling, and desktop application design.
 
----
 ## Demo
- 
+
 https://github.com/user-attachments/assets/95b3b652-3dea-47b7-a4ad-86f540ffcaf5
 
 ## Screenshots
@@ -12,8 +11,6 @@ https://github.com/user-attachments/assets/95b3b652-3dea-47b7-a4ad-86f540ffcaf5
 | Login | Driver Dashboard | Rider Dashboard |
 |-------|-----------------|-----------------|
 |![image alt](https://github.com/iiqra0436-wq/EcoRide/blob/33b023aa33ce1dce7cfe66c5171ba70511acc38e/login.png )| ![image alt](https://github.com/iiqra0436-wq/EcoRide/blob/33b023aa33ce1dce7cfe66c5171ba70511acc38e/driver.png) |![image alt](https://github.com/iiqra0436-wq/EcoRide/blob/33b023aa33ce1dce7cfe66c5171ba70511acc38e/rider.png) |
-
----
 
 ## Features
 
@@ -35,49 +32,24 @@ https://github.com/user-attachments/assets/95b3b652-3dea-47b7-a4ad-86f540ffcaf5
 ---
 
 ## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Language | C++ |
-| GUI Framework | Qt (Widgets, Layouts, Signals & Slots) |
-| Storage | Text files (`rides.txt`, `proposals.txt`) |
+- **Language:** C++
+- **Framework:** Qt (Widgets, Signals & Slots)
+- **Programming Concepts:** Object-Oriented Programming (OOP)
+- **Data Storage:** Text File Handling
 
 ---
-
-## File Structure
-
-```
-EcoRide/
-├── main.cpp                  # Entry point
-├── mainwindow.cpp/.h         # Main navigation window
-├── riderdashboard.cpp/.h     # Rider interface and logic
-├── driverdashboard.cpp/.h    # Driver interface and logic
-├── rides.txt                 # Stores ride entries with status (Pending / Accepted / Cancelled)
-├── proposals.txt             # Stores rider fare proposals
-└── docs/
-    ├── proposal.pdf          # Project proposal presentation
-    └── report.pdf            # Final project report
-```
-
----
-
 ## How to Run
 
-1. **Clone the repository**
+1. Clone the repository:
+
    ```bash
    git clone https://github.com/iiqra0436-wq/EcoRide.git
    cd EcoRide
    ```
+2. Open the project (`.pro` file) in **Qt Creator**.
+3. Build and run the application.
+> **Requirements:** Qt 5 or Qt 6 installed.
 
-2. **Open in Qt Creator**
-   - File → Open Project → select the `.pro` file
-
-3. **Build and run**
-   - Press `Ctrl + R` or click the green Run button
-
-> Make sure Qt (version 5 or 6) is installed. `rides.txt` and `proposals.txt` will be auto-created on first run.
-
----
 
 ## Future Improvements
 
@@ -88,17 +60,13 @@ EcoRide/
 - Package as a standalone executable
 
 ---
-
 ## What I Learned
 
 - Applying OOP concepts (classes, encapsulation, inheritance) in a real project
 - Building GUI applications with Qt Widgets and signal/slot mechanism
 - Managing persistent data with file I/O in C++
 - Structuring a multi-screen desktop application
-
 ---
-
 ## Author
-
 **Iqra Iqbal** — BS Software Engineering, Bahria University  
 📧 iiqra0436@gmail.com · 🔗 [GitHub](https://github.com/iiqra0436-wq)
